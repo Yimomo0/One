@@ -11,13 +11,13 @@
 </p>
 
 <p align="center">
-  <a href="../../releases/latest"><img src="https://img.shields.io/badge/Download-One%201.3-2ea44f?style=for-the-badge" alt="Download One"></a>
+  <a href="../../releases/latest"><img src="https://img.shields.io/badge/Download-One%201.35-2ea44f?style=for-the-badge" alt="Download One"></a>
 </p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/macOS-14%2B-lightgrey" alt="macOS 14+">
   <img src="https://img.shields.io/badge/Apple%20Silicon-arm64-orange" alt="Apple Silicon">
-  <img src="https://img.shields.io/badge/version-1.3%20(build%205)-blue" alt="Version 1.3 build 5">
+  <img src="https://img.shields.io/badge/version-1.35%20(build%206)-blue" alt="Version 1.35 build 6">
 </p>
 
 **English** | [中文](#中文)
@@ -35,6 +35,7 @@ One keeps network latency, power, running apps and cleanup in one menu bar panel
 - **Processes** — apps ranked by CPU, memory or energy; expand and end processes.
 - **Cleanup** — scan, review, and move selected items to the Trash.
 - **Uninstall** — drop in an app to see and remove its related files.
+- **Language** — follows the system, or pick System / 中文 / English in About One.
 - **Menu bar only** — light and dark appearance, all data stays on your Mac.
 
 ### Screenshots
@@ -50,12 +51,16 @@ One keeps network latency, power, running apps and cleanup in one menu bar panel
 | <img src="docs/screenshots/permissions-light.png" width="330" alt="Permission notice"> | <img src="docs/screenshots/uninstall-light.png" width="260" alt="Uninstall preview"> |
 
 <p align="center">
+  <img src="docs/screenshots/about-light.png" width="420" alt="About One with language picker">
+</p>
+
+<p align="center">
   <img src="docs/screenshots/main-dark.png" width="648" alt="Main panel in dark mode">
 </p>
 
 ### Install
 
-1. Download **One-1.3.dmg** from [Releases](../../releases/latest).
+1. Download **One-1.35.dmg** from [Releases](../../releases/latest).
 2. Open the DMG and drag **One** into **Applications**.
 3. On first launch, right-click **One** and choose **Open** (ad-hoc signed, not notarized).
 4. Click the **One** icon in the menu bar.
@@ -89,6 +94,7 @@ One 把网络延迟、功耗、运行中的应用和清理放在一个菜单栏�
 - **进程**：按 CPU、内存或能耗查看应用，可展开、可结束。
 - **清理**：扫描、勾选，移入废纸篓。
 - **卸载**：拖入应用，查看并移除关联文件。
+- **语言**：跟随系统，也可以在「关于 One」里选系统 / 中文 / English。
 - **菜单栏应用**：深浅色跟随系统，所有数据留在本机。
 
 ### 截图
@@ -97,7 +103,7 @@ One 把网络延迟、功耗、运行中的应用和清理放在一个菜单栏�
 
 ### 安装
 
-1. 从 [Releases](../../releases/latest) 下载 **One-1.3.dmg**。
+1. 从 [Releases](../../releases/latest) 下载 **One-1.35.dmg**。
 2. 打开 DMG，把 **One** 拖进 **应用程序**。
 3. 第一次打开：右键 **One**，选择「打开」（ad-hoc 签名，没有公证）。
 4. 点击菜单栏的 **One** 图标。
