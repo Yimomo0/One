@@ -1,125 +1,137 @@
 # One
 
+**macOS 14+ / Apple Silicon 上的菜单栏工具。**网络延迟、功耗与进程、清理与卸载，都在一个主面板，无 Dock 图标。<br>
+**A menu bar app for macOS 14+ on Apple Silicon.** Network latency, power, processes, cleanup and uninstall live in one main panel; no Dock icon.
+
 <p align="center">
-  <img src="docs/screenshots/main-light.png" width="648" alt="One main panel">
+  <img src="docs/screenshots/main-light.png" width="648" alt="One 主面板：网络延迟、功耗与进程、清理与卸载">
 </p>
 
 <p align="center">
-  <b>A small menu bar app for macOS.</b><br>
-  Network latency · power · processes · cleanup · uninstall<br>
-  macOS 菜单栏小工具：网络延迟、功耗、进程、清理与卸载。
-</p>
-
-<p align="center">
-  <a href="../../releases/latest"><img src="https://img.shields.io/badge/Download-One%201.35-2ea44f?style=for-the-badge" alt="Download One"></a>
-</p>
-
-<p align="center">
+  <a href="../../releases/latest"><img src="https://img.shields.io/badge/Download-DMG-2ea44f?style=for-the-badge" alt="Download the latest One DMG"></a>
+  <img src="https://img.shields.io/badge/One-1.45%20build%208-blue" alt="One 1.45 build 8">
   <img src="https://img.shields.io/badge/macOS-14%2B-lightgrey" alt="macOS 14+">
   <img src="https://img.shields.io/badge/Apple%20Silicon-arm64-orange" alt="Apple Silicon">
-  <img src="https://img.shields.io/badge/version-1.35%20(build%206)-blue" alt="Version 1.35 build 6">
 </p>
 
-**English** | [中文](#中文)
-
----
-
-## English
-
-One keeps network latency, power, running apps and cleanup in one menu bar panel. It can also uninstall apps with their related files.
-
-### Features
-
-- **Network latency** — check common sites or any host, and retest with one click.
-- **Power** — whole-machine power, CPU, GPU, fan and memory.
-- **Processes** — apps ranked by CPU, memory or energy; expand and end processes.
-- **Cleanup** — scan, review, and move selected items to the Trash.
-- **Uninstall** — drop in an app to see and remove its related files.
-- **Language** — follows the system, or pick System / 中文 / English in About One.
-- **Menu bar only** — light and dark appearance, all data stays on your Mac.
-
-### Screenshots
-
-<p align="center">
-  <img src="docs/screenshots/main-light.png" width="648" alt="Main panel in light mode">
-</p>
-
-| Cleanup | Power |
-| --- | --- |
-| <img src="docs/screenshots/cleanup-light.png" width="330" alt="Cleanup scan"> | <img src="docs/screenshots/power-light.png" width="330" alt="Power detail"> |
-| **Permissions** | **Uninstall** |
-| <img src="docs/screenshots/permissions-light.png" width="330" alt="Permission notice"> | <img src="docs/screenshots/uninstall-light.png" width="260" alt="Uninstall preview"> |
-
-<p align="center">
-  <img src="docs/screenshots/about-light.png" width="420" alt="About One with language picker">
-</p>
-
-<p align="center">
-  <img src="docs/screenshots/main-dark.png" width="648" alt="Main panel in dark mode">
-</p>
-
-### Install
-
-1. Download **One-1.35.dmg** from [Releases](../../releases/latest).
-2. Open the DMG and drag **One** into **Applications**.
-3. On first launch, right-click **One** and choose **Open** (ad-hoc signed, not notarized).
-4. Click the **One** icon in the menu bar.
-
-If macOS still blocks it: `xattr -dr com.apple.quarantine /Applications/One.app`
-
-**Requirements:** macOS 14+, Apple Silicon, about 2 MB.
-
-### Permissions
-
-Downloads (file sizes for cleanup) and Local Network (network and proxy state). No Full Disk Access, admin password, Screen Recording or Accessibility; no analytics, no uploads.
-
-### Uninstall
-
-Quit One from the menu bar, drag **One.app** to the Trash. If **Launch at Login** is on, remove `~/Library/LaunchAgents/com.yimo.one.plist`.
-
-### Credits
-
-Power sampling uses [macmon](https://github.com/vladkens/macmon) by vladkens (MIT).
+[中文](#中文) · [English](#english)
 
 ---
 
 ## 中文
 
-One 把网络延迟、功耗、运行中的应用和清理放在一个菜单栏面板里，也能卸载应用和它的关联文件。
-
 ### 功能
 
-- **网络延迟**：检测常用站点或任意地址，一键重测。
-- **功耗**：整机功耗、CPU、GPU、风扇和内存。
-- **进程**：按 CPU、内存或能耗查看应用，可展开、可结束。
-- **清理**：扫描、勾选，移入废纸篓。
-- **卸载**：拖入应用，查看并移除关联文件。
-- **语言**：跟随系统，也可以在「关于 One」里选系统 / 中文 / English。
-- **菜单栏应用**：深浅色跟随系统，所有数据留在本机。
+- **网络延迟**：测试 baidu.com、bing.com、google.com、github.com 的延迟，也可输入任意域名或 IP；显示本机 IP、系统代理、代理连通性和直连出口，走系统代理的站点标「代理」。
+- **功耗与进程**：显示系统功耗（芯片电源轨）；进程按 .app 分组，列出 CPU、内存和能耗，可冻结或结束进程。
+- **清理**：扫描缓存、日志、开发者文件、应用数据、下载文件夹和废纸篓，显示实际大小，按「安全 / 需确认 / 手动处理」标记，勾选后移入废纸篓；也可清空废纸篓，倒计时 5 秒。
+- **卸载**：把 .app 拖进窗口，列出关联文件和总大小，确认后移入废纸篓。
 
-### 截图
+### 界面截图
 
-截图与英文部分共用，见上方 [Screenshots](#screenshots)。
+主面板（深色）：
+
+<p align="center">
+  <img src="docs/screenshots/main-dark.png" width="648" alt="深色模式下的 One 主面板">
+</p>
+
+| 清理详情 | 功耗与主机详情 |
+| --- | --- |
+| <img src="docs/screenshots/cleanup-light.png" width="330" alt="清理详情：可安全清理、需确认和全部扫描结果"> | <img src="docs/screenshots/power-light.png" width="330" alt="功耗与主机详情：CPU、GPU、风扇和内存"> |
+| **权限说明** | **卸载应用** |
+| <img src="docs/screenshots/permissions-light.png" width="330" alt="首次启动时的权限说明"> | <img src="docs/screenshots/uninstall-light.png" width="260" alt="卸载应用：关联文件列表与总大小"> |
 
 ### 安装
 
-1. 从 [Releases](../../releases/latest) 下载 **One-1.35.dmg**。
-2. 打开 DMG，把 **One** 拖进 **应用程序**。
-3. 第一次打开：右键 **One**，选择「打开」（ad-hoc 签名，没有公证）。
-4. 点击菜单栏的 **One** 图标。
+1. 从 [Releases](../../releases/latest) 下载 DMG。
+2. 打开 DMG，把 **One.app** 拖进「应用程序」。
+3. 第一次打开时，在「应用程序」里右键 **One**，选择「打开」；One 使用 ad-hoc 签名，没有公证。
+4. 点菜单栏的 **One** 图标，打开主面板。
 
-如果系统仍然拦截：`xattr -dr com.apple.quarantine /Applications/One.app`
+系统仍然拦截时执行：`xattr -dr com.apple.quarantine /Applications/One.app`
 
-**系统要求：** macOS 14+，Apple Silicon，约 2 MB。
+**系统要求：** macOS 14+，Apple Silicon。
 
 ### 权限
 
-下载文件夹（统计清理所需文件大小）和本地网络（网络与代理状态）。不申请完全磁盘访问、管理员密码、屏幕录制或辅助功能权限；没有统计和遥测，不上传数据。
+One 不需要管理员密码、root、屏幕录制、辅助功能或完全磁盘访问。macOS 可能按系统版本询问下列权限，拒绝只影响对应功能。
+
+| 权限 | 用途 |
+| --- | --- |
+| 本地网络 | 判断是否设置了系统代理，读取代理连通性。 |
+| 下载文件夹 | 统计「下载」里可清理的空间，只读文件名和大小。 |
+| App 数据（部分系统版本） | 读取其他应用的缓存和数据目录，统计可清理的空间。 |
+
+### 语言
+
+默认跟随系统。在「设置」或「关于 One」中切换系统 / 中文 / English，切换后立即生效。
+
+### 限制
+
+- 功耗口径是芯片电源轨，数据来自内置 macmon 0.10.0，不是墙插功耗。
+- 网络只读：不修改系统代理，不内置 netmode，不控制 ClashX。
+- 延迟是 TCP 443 握手时间，不是 ICMP ping 或页面加载时间。
+- 清理只把文件移到废纸篓，不直接删除。
 
 ### 卸载
 
-从菜单栏退出 One，把 **One.app** 拖进废纸篓。如果开过「登录时自动启动」，删除 `~/Library/LaunchAgents/com.yimo.one.plist`。
+从菜单栏退出 One，把 **One.app** 拖进废纸篓。若开启过「登录时自动启动」，再删除 `~/Library/LaunchAgents/com.yimo.one.plist`。
 
 ### 致谢
 
 功耗采样使用 [macmon](https://github.com/vladkens/macmon)（作者 vladkens，MIT 许可）。
+
+---
+
+## English
+
+### Features
+
+- **Network latency** — test baidu.com, bing.com, google.com and github.com, or any host; see the local IP, system proxy, proxy connectivity and direct egress; sites reached through the system proxy are marked Proxy.
+- **Power and processes** — system power (chip rails), plus processes grouped by .app with CPU, memory and energy; freeze or quit a process.
+- **Cleanup** — scan caches, logs, developer files, app data, Downloads and the Trash; see actual sizes and Safe / Review / Manual labels; move selected items to the Trash; empty the Trash with a 5-second countdown.
+- **Uninstall** — drop in a .app to list its related files and total size, then move them to the Trash.
+
+### Screenshots
+
+Screenshots are shared: see the 中文 section above. Interface labels follow the app language.
+
+### Install
+
+1. Download the DMG from [Releases](../../releases/latest).
+2. Open the DMG and drag **One.app** into **Applications**.
+3. On first launch, right-click **One** and choose **Open**; One is ad-hoc signed and not notarized.
+4. Click the **One** icon in the menu bar to open the main panel.
+
+If macOS still blocks it: `xattr -dr com.apple.quarantine /Applications/One.app`
+
+**Requirements:** macOS 14+, Apple Silicon.
+
+### Permissions
+
+One does not need an admin password, root, Screen Recording, Accessibility or Full Disk Access. macOS may ask for the permissions below depending on the OS version; denying one only affects that feature.
+
+| Permission | Purpose |
+| --- | --- |
+| Local Network | Determine the system proxy setting and read proxy connectivity. |
+| Downloads folder | Measure reclaimable space in Downloads; reads file names and sizes only. |
+| App Data (some macOS versions) | Read other apps' cache and data folders to measure reclaimable space. |
+
+### Language
+
+Follows the system by default. Switch between System / 中文 / English in Settings or About One; changes apply immediately.
+
+### Limitations
+
+- Power is measured at the chip power rails (built-in macmon 0.10.0), not at the wall socket.
+- Network is read-only: One does not change the system proxy, include netmode, or control ClashX.
+- Latency is TCP 443 handshake time, not ICMP ping or page load time.
+- Cleanup moves files to the Trash; it does not delete them directly.
+
+### Uninstall
+
+Quit One from the menu bar and drag **One.app** to the Trash. If Launch at Login was on, also delete `~/Library/LaunchAgents/com.yimo.one.plist`.
+
+### Credits
+
+Power sampling uses [macmon](https://github.com/vladkens/macmon) by vladkens (MIT).
