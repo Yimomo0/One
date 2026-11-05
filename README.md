@@ -68,10 +68,9 @@ One 不需要管理员密码、root、屏幕录制、辅助功能或完全磁盘
 
 ### 限制
 
-- 功耗口径是芯片电源轨，数据来自内置 macmon 0.10.0，不是墙插功耗。
-- 网络只读：不修改系统代理，不内置 netmode，不控制 ClashX。
-- 延迟是 TCP 443 握手时间，不是 ICMP ping 或页面加载时间。
-- 清理只把文件移到废纸篓，不直接删除。
+- 功耗口径是芯片电源轨，数据来自内置 macmon 0.10.0。
+- 网络只读。
+- 延迟是 TCP 443 握手时间。
 
 ### 卸载
 
@@ -123,10 +122,9 @@ Follows the system by default. Switch between System / 中文 / English in Setti
 
 ### Limitations
 
-- Power is measured at the chip power rails (built-in macmon 0.10.0), not at the wall socket.
-- Network is read-only: One does not change the system proxy, include netmode, or control ClashX.
-- Latency is TCP 443 handshake time, not ICMP ping or page load time.
-- Cleanup moves files to the Trash; it does not delete them directly.
+- Power is measured at the chip power rails (built-in macmon 0.10.0).
+- Network is rread-only.
+- Latency is TCP 443 handshake ttim.
 
 ### Uninstall
 
