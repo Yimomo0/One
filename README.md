@@ -9,7 +9,7 @@
 
 <p align="center">
   <a href="../../releases/latest"><img src="https://img.shields.io/badge/Download-DMG-2ea44f?style=for-the-badge" alt="Download the latest One DMG"></a>
-  <img src="https://img.shields.io/badge/One-1.45%20build%208-blue" alt="One 1.45 build 8">
+  <img src="https://img.shields.io/badge/One-1.49%20build%2012-blue" alt="One 1.49 build 12">
   <img src="https://img.shields.io/badge/macOS-14%2B-lightgrey" alt="macOS 14+">
   <img src="https://img.shields.io/badge/Apple%20Silicon-arm64-orange" alt="Apple Silicon">
 </p>
@@ -22,10 +22,10 @@
 
 ### 功能
 
-- **网络延迟**：测试 baidu.com、bing.com、google.com、github.com 的延迟，也可输入任意域名或 IP；显示本机 IP、系统代理、代理连通性和直连出口，走系统代理的站点标「代理」。
+- **网络延迟**：测试 baidu.com、bing.com、google.com、github.com 的延迟，也可输入任意域名或 IP；显示本机 IP 和系统代理状态，走系统代理的站点标「代理」。GitHub 版本不显示代理出口、路由器探测或网络详情。
 - **功耗与进程**：显示系统功耗（芯片电源轨）；进程按 .app 分组，列出 CPU、内存和能耗，可冻结或结束进程。
 - **清理**：扫描缓存、日志、开发者文件、应用数据、下载文件夹和废纸篓，显示实际大小，按「安全 / 需确认 / 手动处理」标记，勾选后移入废纸篓；也可清空废纸篓，默认 5 秒倒计时。
-- **卸载**：把 .app 拖进窗口，列出关联文件和总大小，确认后移入废纸篓。
+- **卸载**：把 .app 拖进窗口，列出关联文件和总大小，确认后移入废纸篓；失败项会留在列表里，可直接重试。
 
 ### 界面截图
 
@@ -54,23 +54,26 @@
 
 ### 权限
 
-One 不需要管理员密码、root、屏幕录制、辅助功能或完全磁盘访问。macOS 可能按系统版本询问下列权限，拒绝只影响对应功能。
+One 不请求管理员密码、root、屏幕录制或辅助功能权限。macOS 会按系统版本和实际功能询问下列权限，拒绝只影响对应功能。Finder 自动化只在没有完全磁盘访问、又需要清空废纸篓时询问；完全磁盘访问是可选项。
 
 | 权限 | 用途 |
 | --- | --- |
-| 本地网络 | 判断是否设置了系统代理，读取代理连通性。 |
+| 本地网络 | 读取本机网络和系统代理设置，判断代理状态。 |
 | 下载文件夹 | 统计「下载」里可清理的空间，只读文件名和大小。 |
 | App 数据（部分系统版本） | 读取其他应用的缓存和数据目录，统计可清理的空间。 |
+| Finder 自动化 | 没有完全磁盘访问时，请 Finder 清空废纸篓；只发送「读取数量」和「清空」两条 AppleScript。 |
+| 完全磁盘访问（可选） | 授予后直接清空 `~/.Trash`；不授予也能通过 Finder 清空。 |
 
 ### 语言
 
-默认跟随系统。在「设置」或「关于 One」中切换系统 / 中文 / English，切换后立即生效。
+默认跟随系统。在「设置」中切换系统 / 中文 / English，切换后立即生效；「关于 One」不再提供语言切换。One 不注册应用级快捷键，点菜单栏图标打开主面板。
 
 ### 限制
 
-- 功耗口径是芯片电源轨，数据来自内置 macmon 0.10.0。
-- 网络只读。
-- 延迟是 TCP 443 握手时间。
+- 功耗口径是芯片电源轨，数据来自内置 macmon 0.10.0，不是墙插功耗。
+- GitHub 版本的网络只读：只显示本机 IP 和系统代理状态，不修改系统代理，不内置 netmode，不控制 ClashX。
+- 延迟是 TCP 443 握手时间，不是 ICMP ping 或页面加载时间。
+- 清理和「移入废纸篓」只把文件移到废纸篓；「清空废纸篓」是删除操作，有完全磁盘访问时直接删除，否则由 Finder 删除。
 
 ### 卸载
 
@@ -86,10 +89,10 @@ One 不需要管理员密码、root、屏幕录制、辅助功能或完全磁盘
 
 ### Features
 
-- **Network latency** — test baidu.com, bing.com, google.com and github.com, or any host; see the local IP, system proxy, proxy connectivity and direct egress; sites reached through the system proxy are marked Proxy.
+- **Network latency** — test baidu.com, bing.com, google.com and github.com, or any host; see the local IP and system proxy state; sites reached through the system proxy are marked Proxy. The GitHub build does not show proxy egress, router probing or network details.
 - **Power and processes** — system power (chip rails), plus processes grouped by .app with CPU, memory and energy; freeze or quit a process.
 - **Cleanup** — scan caches, logs, developer files, app data, Downloads and the Trash; see actual sizes and Safe / Review / Manual labels; move selected items to the Trash; empty the Trash with a 5-second countdown.
-- **Uninstall** — drop in a .app to list its related files and total size, then move them to the Trash.
+- **Uninstall** — drop in a .app to list its related files and total size, then move them to the Trash; failed items stay in the list so you can retry.
 
 ### Screenshots
 
@@ -108,23 +111,26 @@ If macOS still blocks it: `xattr -dr com.apple.quarantine /Applications/One.app`
 
 ### Permissions
 
-One does not need an admin password, root, Screen Recording, Accessibility or Full Disk Access. macOS may ask for the permissions below depending on the OS version; denying one only affects that feature.
+One does not ask for an admin password, root, Screen Recording or Accessibility access. macOS asks for the permissions below depending on the OS version and the feature in use; denying one only affects that feature. Finder automation is requested only when One has no Full Disk Access and needs to empty the Trash; Full Disk Access is optional.
 
 | Permission | Purpose |
 | --- | --- |
-| Local Network | Determine the system proxy setting and read proxy connectivity. |
+| Local Network | Read the Mac's network and system proxy settings to determine proxy state. |
 | Downloads folder | Measure reclaimable space in Downloads; reads file names and sizes only. |
 | App Data (some macOS versions) | Read other apps' cache and data folders to measure reclaimable space. |
+| Finder automation | When Full Disk Access is not granted, ask Finder to empty the Trash; sends only the count and empty AppleScript commands. |
+| Full Disk Access (optional) | Lets One empty `~/.Trash` directly; without it, Finder does the same job. |
 
 ### Language
 
-Follows the system by default. Switch between System / 中文 / English in Settings or About One; changes apply immediately.
+Follows the system by default. Switch between System / 中文 / English in Settings; changes apply immediately. About One no longer offers a language switch. One registers no app-level keyboard shortcuts; open the panel from the menu bar icon.
 
 ### Limitations
 
-- Power is measured at the chip power rails (built-in macmon 0.10.0).
-- Network is rread-only.
-- Latency is TCP 443 handshake ttim.
+- Power is measured at the chip power rails (built-in macmon 0.10.0), not at the wall socket.
+- The GitHub build's network view is read-only: it shows the local IP and system proxy state, does not change the system proxy, does not include netmode and does not control ClashX.
+- Latency is TCP 443 handshake time, not ICMP ping or page load time.
+- Cleanup and Move to Trash only move files to the Trash; Empty Trash is a delete operation. With Full Disk Access One deletes directly; otherwise Finder does it.
 
 ### Uninstall
 
